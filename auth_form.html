@@ -1,0 +1,58 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Форма авторизации</title>
+    <link rel="stylesheet" href="styles.css">
+	  <script>
+   function sucsess() {
+   var status = document.getElementById("status");
+
+   var pass = document.getElementById("pass").value;
+    var email = document.getElementById("email").value;
+
+   
+	var re = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+	
+    if (re.test(email)) pass;
+      else status.innerHTML = '<span style="color:red;">' +"Адрес неверный" + '</span>';
+   
+    
+	
+	
+	if(isEmpty(pass)) status.innerHTML = '<span style="color:red;">' + "Поле Пароль пустое" + '</span>';
+	if(isEmpty(email)) status.innerHTML = '<span style="color:red;">' + "Поле email пустое" + '</span>';
+	
+	
+
+	
+   }
+   function isEmpty(str){
+    return (str == null) || (str.length == 0);
+   }
+   status.innerHTML ='<span style="color:green;">' + "Успех" +'</span>';
+  </script>
+</head>
+
+<form action="" class="railway">
+<div class="stripes-block">
+<div class="line"></div>
+</div>
+<h1>Авторизация</h1>
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" required placeholder=" Введите Email">
+
+<label for="pass">Пароль</label>
+<input type="password" id="pass" required placeholder=" Введите пароль">
+
+
+
+</div>
+<div class="submit-block">
+<div class="submit-button">
+<i class="fa fa-train" aria-hidden="true"></i><br>
+<input type="submit" value="Войти" class="gradient-button"  onclick="sucsess()">
+<a href="main.html" class="gradient-button">Отмена</a>
+<p><span id="status"></span></p>
+</div>
+</div>
+</form>

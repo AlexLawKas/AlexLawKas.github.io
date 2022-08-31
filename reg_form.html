@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="styles.css">
+	  <script>
+   function sucsess() {
+   var status = document.getElementById("status");
+
+   var name = document.getElementById("name").value;
+   var pass = document.getElementById("pass").value;
+   var pass1 = document.getElementById("pass1").value;
+   var email = document.getElementById("email").value;
+   var date = document.getElementById("date").value;
+   
+	var re = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+	status.innerHTML = '<span style="color:green;">' + "Успех" +'</span>';
+	if (isNotMatch(pass, pass1))  status.innerHTML = '<span style="color:red;">' + "Пароли не совпадают" + '</span>';
+    if (re.test(email)) pass;
+      else status.innerHTML = '<span style="color:red;">' + "Адрес неверный" + '</span>';
+   
+    if(isEmpty(pass1)) status.innerHTML = '<span style="color:red;">' + "Поле Повторить пароль пустое" + '</span>';
+	
+	
+	if(isEmpty(pass)) status.innerHTML = '<span style="color:red;">' + "Поле Пароль пустое" + '</span>';
+	if(isEmpty(date)) status.innerHTML = '<span style="color:red;">' + "Поле Дата рождения пустое" + '</span>';
+	if(isEmpty(email)) status.innerHTML = '<span style="color:red;">' + "Поле email пустое" + '</span>';
+	
+	if(isEmpty(name)) status.innerHTML = '<span style="color:red;">' + "Поле Никнэйм пустое" + '</span>';
+	
+	
+	
+
+	
+   }
+   function isEmpty(str){
+    return (str == null) || (str.length == 0);
+   }
+   function isNotMatch(pass1, pass2){
+   if (pass1 != pass2){
+    return 'Пароли не совпали';
+	}
+   }
+  </script>
+</head>
+
+<form action="" class="railway">
+<div class="stripes-block">
+<div class="line"></div>
+</div>
+<h1>Регистрация</h1>
+<div class="form-group">
+<label for="name">Никнэйм</label>
+<input type="text" id="name" required placeholder=" Введите отображаемый Никнэйм">
+<label for="email">Email</label>
+<input type="email" id="email" required placeholder=" Введите Email">
+<label for="email">Дата рождения</label>
+<input type="date" id="date" required placeholder=" Введите дату рождения">
+<label for="pass">Пароль</label>
+<input type="password" id="pass" required placeholder=" Введите пароль">
+<label for="pass1">Повторить Пароль</label>
+<input type="passwordt" id="pass1" required placeholder=" Повторите пароль">
+
+<label for="phone">Номер телефона</label>
+<input type="phone" id="phone" placeholder=" Введите Номер телефона">
+</div>
+<div class="submit-block">
+<div class="submit-button">
+<i class="fa fa-train" aria-hidden="true"></i><br>
+<input type="submit" value="Зарегистрироваться" class="gradient-button"  onclick="sucsess()">
+<a href="main.html" class="gradient-button">Отмена</a>
+<p><span id="status"></span></p>
+</div>
+</div>
+</form>
